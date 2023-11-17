@@ -1,6 +1,28 @@
 @use "../abstracts/" as *;
 
 .input-group {
+  /* `.input-group-text` without a border with their sibling
+   * must share the same colors (border and bg) as their sibling.
+   * => Keep in sync with @see _form-control.scss
+   */
+  --#{$prefix}input-group-text-disabled-bg: #{$input-disabled-bg};
+  --#{$prefix}input-group-text-disabled-color: #{$input-disabled-color};
+  --#{$prefix}input-group-text-disabled-border-color: #{$input-disabled-border-color};
+  --#{$prefix}input-group-text-focus-border-color: #{$input-focus-border-color};
+
+  .input-group-text.border-end-0:has(
+      + .form-control:focus,
+      + .form-control:focus-visible
+    ) {
+    border-color: var(--#{$prefix}input-group-text-focus-border-color);
+    box-shadow: none;
+  }
+  .input-group-text.border-end-0:has(+ .form-control:disabled) {
+    color: var(--#{$prefix}input-group-text-disabled-color);
+    background-color: var(--#{$prefix}input-group-text-disabled-bg);
+    border-color: var(--#{$prefix}input-group-text-disabled-border-color);
+  }
+
   .btn-search {
     border-left-color: transparent;
   }
