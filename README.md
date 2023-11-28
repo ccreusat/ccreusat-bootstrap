@@ -7,7 +7,7 @@ Edifice Bootstrap is a CSS framework containing all the UI components used by ou
 Install it by cloning the repository:
 
 ```
-git clone https://github.com/opendigitaleducation/edifice-bootstrap.git
+git clone https://github.com/opendigitaleducation/ccreusat-bootstrap.git
 pnpm install
 ```
 

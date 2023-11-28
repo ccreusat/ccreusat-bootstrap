@@ -1,6 +1,7 @@
 {
-  "name": "edifice-bootstrap",
+  "name": "ccreusat-bootstrap",
   "version": "1.0.0",
+  "private": true,
   "description": "Edifice CSS framework based on Bootstrap",
   "keywords": [
     "Bootstrap",
@@ -8,13 +9,13 @@
     "Edifice",
     "Theme"
   ],
-  "homepage": "https://github.com/opendigitaleducation/edifice-bootstrap#readme",
+  "homepage": "https://github.com/opendigitaleducation/ccreusat-bootstrap#readme",
   "bugs": {
-    "url": "https://github.com/opendigitaleducation/edifice-bootstrap/issues"
+    "url": "https://github.com/opendigitaleducation/ccreusat-bootstrap/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/opendigitaleducation/edifice-bootstrap.git"
+    "url": "git+https://github.com/opendigitaleducation/ccreusat-bootstrap.git"
   },
   "license": "AGPL-3.0",
   "author": "Edifice",
@@ -24,28 +25,28 @@
     "version.txt"
   ],
   "scripts": {
-    "build": "sass --load-path=node_modules/ --style=compressed scss/index.scss dist/index.css",
+    "build": "sass --load-path=node_modules/ --style=compressed packages/scss/index.scss dist/index.css",
     "clean": "rm -rf dist",
-    "dev:fix": "stylelint scss/**/*.scss --fix",
-    "dev:lint": "stylelint scss/**/*.scss",
+    "dev:fix": "stylelint packages/scss/**/*.scss --fix",
+    "dev:lint": "stylelint packages/scss/**/*.scss",
     "format": "pnpm format:write && pnpm format:check",
-    "format:check": "npx prettier --check scss/**/*.scss",
-    "format:write": "npx prettier --write scss/**/*.scss",
+    "format:check": "npx prettier --check packages/scss/**/*.scss",
+    "format:write": "npx prettier --write packages/scss/**/*.scss",
     "generate-commit-version": "node scripts/version.cjs",
     "prepare": "husky install",
     "release": "pnpm run clean && cp -r assets dist && pnpm generate-commit-version && pnpm run build",
     "watch": "sass --watch --load-path=node_modules/ --style=compressed scss/index.scss dist/index.css",
-    "watch:react": "sass --watch --style compressed --load-path=node_modules/ --no-source-map scss/index.scss ../edifice-ui/public/assets/themes/edifice-bootstrap/index.css",
-    "watch:sb": "sass --watch --style compressed --load-path=node_modules/ --no-source-map scss/index.scss ../ode-dev-server/assets/themes/edifice-bootstrap/index.css"
+    "watch:react": "sass --watch --style compressed --load-path=node_modules/ --no-source-map scss/index.scss ../edifice-ui/public/assets/themes/ccreusat-bootstrap/index.css",
+    "watch:sb": "sass --watch --style compressed --load-path=node_modules/ --no-source-map scss/index.scss ../ode-dev-server/assets/themes/ccreusat-bootstrap/index.css"
   },
   "dependencies": {
     "@popperjs/core": "2.11.7",
     "bootstrap": "5.3.0"
   },
   "devDependencies": {
+    "lerna": "7.0.2",
     "husky": "8.0.0",
     "sass": "1.63.6",
-    "semantic-release": "21.0.7",
     "stylelint": "15.10.2",
     "stylelint-config-recommended-scss": "12.0.0",
     "stylelint-config-standard": "34.0.0"
