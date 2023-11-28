@@ -1,0 +1,27 @@
+@use "../abstracts/" as *;
+
+.toolbar {
+  align-items: center;
+  gap: $spacer-8;
+  border-radius: $spacer-16;
+
+  &.default {
+    padding: $spacer-8 $spacer-12;
+    box-shadow: $box-shadow;
+  }
+
+  &.no-shadow {
+    padding: $spacer-8;
+  }
+
+  &-divider {
+    width: 1px;
+    height: 2rem;
+    background: $gray-400;
+  }
+
+  &.focus {
+    outline: 2px solid var(--#{$prefix}secondary);
+    outline-offset: -1px;
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "ccreusat-bootstrap",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "private": true,
   "description": "Edifice CSS framework based on Bootstrap",
   "keywords": [
@@ -25,13 +25,14 @@
     "version.txt"
   ],
   "scripts": {
-    "build": "sass --load-path=node_modules/ --style=compressed packages/scss/index.scss dist/index.css",
+    "cli": "node index.ts",
+    "build": "sass --load-path=node_modules/ --style=compressed scss/index.scss dist/index.css",
     "clean": "rm -rf dist",
-    "dev:fix": "stylelint packages/scss/**/*.scss --fix",
-    "dev:lint": "stylelint packages/scss/**/*.scss",
+    "dev:fix": "stylelint scss/**/*.scss --fix",
+    "dev:lint": "stylelint scss/**/*.scss",
     "format": "pnpm format:write && pnpm format:check",
-    "format:check": "npx prettier --check packages/scss/**/*.scss",
-    "format:write": "npx prettier --write packages/scss/**/*.scss",
+    "format:check": "npx prettier --check scss/**/*.scss",
+    "format:write": "npx prettier --write scss/**/*.scss",
     "generate-commit-version": "node scripts/version.cjs",
     "prepare": "husky install",
     "release": "pnpm run clean && cp -r assets dist && pnpm generate-commit-version && pnpm run build",
@@ -44,9 +45,14 @@
     "bootstrap": "5.3.0"
   },
   "devDependencies": {
-    "lerna": "7.0.2",
+    "@types/node": "^20.10.0",
+    "conventional-changelog-cli": "^4.1.0",
+    "conventional-github-releaser": "^3.1.5",
     "husky": "8.0.0",
+    "lerna": "7.0.2",
     "sass": "1.63.6",
+    "semver": "^7.5.4",
+    "shelljs": "^0.8.5",
     "stylelint": "15.10.2",
     "stylelint-config-recommended-scss": "12.0.0",
     "stylelint-config-standard": "34.0.0"
